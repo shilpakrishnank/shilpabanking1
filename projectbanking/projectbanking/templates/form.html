@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bank Customer Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1, h4 {
+      margin: 15px 0 4px;
+      font-weight: 400;
+      }
+      h4 {
+      margin: 20px 0 4px;
+      font-weight: 400;
+      }
+      span {
+      color: red;
+      }
+      .small {
+      font-size: 10px;
+      line-height: 18px;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 3px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px #ccc;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      vertical-align: middle;
+      }
+      input:hover, textarea:hover, select:hover {
+      outline: none;
+      border: 1px solid #095484;
+      background: #e6eef7;
+      }
+      .title-block select, .title-block input {
+      margin-bottom: 10px;
+      }
+      select {
+      padding: 7px 0;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      background: transparent;
+      }
+      select, table {
+      width: 100%;
+      }
+      option {
+      background: #fff;
+      }
+      .day-visited, .time-visited {
+      position: relative;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      input[type="time"]::-webkit-inner-spin-button {
+      margin: 2px 22px 0 0;
+      }
+      .day-visited i, .time-visited i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      top: 8px;
+      font-size: 20px;
+      }
+      .day-visited i, .time-visited i {
+      right: 5px;
+      z-index: 1;
+      color: #a9a9a9;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 0;
+      z-index: 2;
+      opacity: 0;
+      }
+      .question-answer label {
+      display: block;
+      padding: 0 20px 10px 0;
+      }
+      .question-answer input {
+      width: auto;
+      margin-top: -2px;
+      }
+      th, td {
+      width: 18%;
+      padding: 15px 0;
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+      vertical-align: unset;
+      line-height: 18px;
+      font-weight: 400;
+      word-break: break-all;
+      }
+      .first-col {
+      width: 25%;
+      text-align: left;
+      }
+      textarea {
+      width: calc(100% - 6px);
+      }
+      .btn-block {
+      margin-top: 20px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      background-color: #095484;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background-color: #0666a3;
+      }
+      @media (min-width: 568px) {
+      .title-block {
+      display: flex;
+      justify-content: space-between;
+      }
+      .title-block select {
+      width: 30%;
+      margin-bottom: 0;
+      }
+      .title-block input {
+      width: 31%;
+      margin-bottom: 0;
+      }
+      th, td {
+      word-break: keep-all;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/">
+        <center><h1>Bank Customer Form</h1> </center>
+        <label>Name :</label><input type="text" placeholder="Enter your name"><br>
+        <label>DOB:</label><input type="date"><br>
+        <label>Age:</label><input type="number" min="1" max="65"><br>
+        <label>Gender:</label>
+        <input type="radio" name="Gender" value="Male">Male<br>
+        <input type="radio" name="Gender" value="Female">Female<br>
+        <label>Email:</label><input type="email" placeholder="Enter your email" required><br>
+        <label>Address:</label><textarea   placeholder="Address"></textarea><br>
+        <label>Phone number:</label><input type="Phone" placeholder="+91 9567887***" name=""><br>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+    var stateObject = {
+     "kerala": {
+    "palakkad": ["ottapalam", "cherpplassery", "manarkkad"],
+    "thrissur": ["chavakkad", "thalappally"],
+    "kottayam": ["changanassery", "vaikkom", "meenachil"],
+    "alappuzha": ["kuttanad", "chengannur", "mavelikkara"],
+    "malappuram": ["ponnani", "perinthalmanna"],
+
+  },
+
+
+}
+window.onload = function() {
+  var stateSel = document.getElementById("state");
+  var districtSel = document.getElementById("district");
+  var branchSel = document.getElementById("branch");
+  for (var x in stateObject) {
+    stateSel.options[stateSel.options.length] = new Option(x, x);
+  }
+  stateSel.onchange = function() {
+    //empty branch- and district- dropdowns
+    branchSel.length = 1;
+    districtSel.length = 1;
+    //display correct values
+    for (var y in stateObject[this.value]) {
+      districtSel.options[districtSel.options.length] = new Option(y, y);
+    }
+  }
+  districtSel.onchange = function() {
+    //empty branch dropdown
+    branchSel.length = 1;
+    //display correct values
+    var z = stateObject[stateSel.value][this.value];
+    for (var i = 0; i < z.length; i++) {
+      branchSel.options[branchSel.options.length] = new Option(z[i], z[i]);
+    }
+  }
+}
+</script>
+</head>
+<body>
+
+
+
+<form name="form1" id="form1" action="/action_page.php">
+State: <select name="state" id="state">
+    <option value="" selected="selected">Select state</option>
+  </select>
+  <br><br>
+District: <select name="district" id="district">
+    <option value="" selected="selected">Please select state first</option>
+  </select>
+  <br><br>
+Branch: <select name="branch" id="branch">
+    <option value="" selected="selected">Please select district first</option>
+  </select>
+  <br><br>
+
+
+
+
+        <label>Account type:</label>
+          <select>
+          <option value="">Choose account type</option>
+          <option value="1">Savings account</option>
+          <option value="1">Current account</option>
+          </select>
+
+        <label>Material provide:</label>
+        <div>
+              <input type="checkbox" value="none" id="checkbox_1" name="contact1"/>
+              <label for="checkbox_1" class="checkbox"><span>Debit card</span></label>
+        </div>
+        <div>
+              <input type="checkbox" value="none" id="checkbox_2" name="contact2"/>
+              <label for="checkbox_2" class="checkbox"><span>Credit card</span></label>
+        </div>
+        <div>
+              <input type="checkbox" value="none" id="checkbox_3" name="contact2"/>
+              <label for="checkbox_2" class="checkbox"><span>Cheque book</span></label>
+        </div>
+        <div class="btn-block">
+          <button type="submit" href="/submit">Submit</button>
+          <button type="log out" href="/">logout</button>
+        </div>
+
+     </div>
+    </form>
+   </body>
+</html>

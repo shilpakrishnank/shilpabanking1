@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+var subjectObject = {
+  "Science": {
+    "Maths": ["Links", "Images", "Tables", "Lists"],
+    "Pysics": ["Borders", "Margins", "Backgrounds", "Float"],
+    "Chemistry": ["Variables", "Operators", "Functions", "Conditions"]
+  },
+  "Commerce": {
+    "BBA": ["Variables", "Strings", "Arrays"],
+    "BCOM": ["SELECT", "UPDATE", "DELETE"]
+  }
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("subject");
+  var topicSel = document.getElementById("topic");
+  var chapterSel = document.getElementById("chapter");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  }
+  subjectSel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+    chapterSel.length = 1;
+    topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y, y);
+    }
+  }
+  topicSel.onchange = function() {
+    //empty Chapters dropdown
+    chapterSel.length = 1;
+    //display correct values
+    var z = subjectObject[subjectSel.value][this.value];
+    for (var i = 0; i < z.length; i++) {
+      chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+    }
+  }
+}
+    </script>
+</head>
+<body>
+<div id="form">
+<h1>Application Form</h1>
+<form action="base" method="post">
+    {% csrf_token %}
+    <label>Name :</label><input type="text" placeholder="Enter your name"><br>
+    <label>DOB:</label><input type="date"><br>
+    <label>Age:</label><input type="number" min="1" max="65"><br>
+    <label>Gender:</label><input type="radio" name="Gender" value="Male">Male
+    <input type="radio" name="Gender" value="Female">Female<br>
+     <label>Email:</label><input type="email" placeholder="Enter yoy email" required><br>
+     <label>Address:</label><textarea   placeholder="Address"></textarea><br>
+    <label>Phone number:</label><input type="Phone" placeholder="+91 97547*****" name=""><br>
+<!--<form name="form1" id="form1" action="/action_page.php">-->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--<script>-->
+<!--var subjectObject = {-->
+<!--  "Science": {-->
+<!--    "Maths": ["Links", "Images", "Tables", "Lists"],-->
+<!--    "Pysics": ["Borders", "Margins", "Backgrounds", "Float"],-->
+<!--    "Chemistry": ["Variables", "Operators", "Functions", "Conditions"]-->
+<!--  },-->
+<!--  "Commerce": {-->
+<!--    "BBA": ["Variables", "Strings", "Arrays"],-->
+<!--    "BCOM": ["SELECT", "UPDATE", "DELETE"]-->
+<!--  }-->
+<!--}-->
+<!--window.onload = function() {-->
+<!--  var subjectSel = document.getElementById("subject");-->
+<!--  var topicSel = document.getElementById("topic");-->
+<!--  var chapterSel = document.getElementById("chapter");-->
+<!--  for (var x in subjectObject) {-->
+<!--    subjectSel.options[subjectSel.options.length] = new Option(x, x);-->
+<!--  }-->
+<!--  subjectSel.onchange = function() {-->
+<!--    //empty Chapters- and Topics- dropdowns-->
+<!--    chapterSel.length = 1;-->
+<!--    topicSel.length = 1;-->
+<!--    //display correct values-->
+<!--    for (var y in subjectObject[this.value]) {-->
+<!--      topicSel.options[topicSel.options.length] = new Option(y, y);-->
+<!--    }-->
+<!--  }-->
+<!--  topicSel.onchange = function() {-->
+<!--    //empty Chapters dropdown-->
+<!--    chapterSel.length = 1;-->
+<!--    //display correct values-->
+<!--    var z = subjectObject[subjectSel.value][this.value];-->
+<!--    for (var i = 0; i < z.length; i++) {-->
+<!--      chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);-->
+<!--    }-->
+<!--  }-->
+<!--}-->
+<!--   Chapters: <select name="chapter" id="chapter">-->
+<!--    <option value="" selected="selected">Please select topic first</option>-->
+<!--  </select>-->
+<!--<br><br>-->
+
+<!--     <label>Purpose:</label><select>-->
+<!--    <option value="Enquiry">EnquiDepartment: <select name="subject" id="subject">-->
+<!--    <option value="" selected="selected">Select subject</option>-->
+<!--  </select>-->
+<!--  <br><br>-->
+<!--Course: <select name="topic" id="topic">-->
+<!--    <option value="" selected="selected">Please select subject first</option>-->
+<!--  </select>-->
+<!--  <br><br>ry</option>-->
+<!--    <option value="Place order">Place order</option>-->
+<!--    <option value="Return">Return</option>-->
+<!--</select>-->
+<!--    <br><br>-->
+<!--     <label>Material Provide:</label><input type="checkbox" value="Debit Note">Debit Note-->
+<!--     <input type="checkbox" value="Pen">Pen-->
+<!--     <input type="checkbox" value=" Exam Pappers">Exam pappers<br>-->
+<!--     <input type="submit" value="Submit">-->
+<!--     <input type="submit" value="Log out">-->
+
+
+</form>
+    </div>
+
+</body>
+</html>
